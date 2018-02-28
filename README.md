@@ -21,3 +21,7 @@ Assumptions
 
 To Package:
 mvn package
+
+To Update JAR:
+mvn package
+cp ./target/reservation-cli-1.0-SNAPSHOT-jar-with-dependencies.jar ./dist/reservation-cli.jar
