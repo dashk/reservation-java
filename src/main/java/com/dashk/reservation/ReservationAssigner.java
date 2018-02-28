@@ -24,7 +24,7 @@ public class ReservationAssigner {
         sortTableByCapacity(tables);
 
         for (Table table : tables) {
-            logger.debug("Assigning reservations to %s", table.getName());
+            logger.debug(String.format("Assigning reservations to %s", table.getName()));
             run(table, reservations);
         }
     }
@@ -42,18 +42,14 @@ public class ReservationAssigner {
         List<Reservation> availableReservations = getAvailableReservationsByTable(table, reservations);
 
         while (availableReservations.size() > 0) {
-            Reservation schedulableReservationWithHighestCapacity = availableReservations.get(0);
+            Reservation highestCapacityReservation = availableReservations.get(0);
             logger.debug(
-                    String.format(
-                            "Assigning %s to Table %s",
-                            schedulableReservationWithHighestCapacity.toString(),
-                            table.getName()
-                    )
+                String.format("Assigning %s to Table %s", highestCapacityReservation.toString(), table.getName())
             );
 
-            table.assign(schedulableReservationWithHighestCapacity);
+            table.assign(highestCapacityReservation);
 
-            // Find the next set of schedulable reservations
+            // Find the next set of available reservations
             availableReservations = getAvailableReservationsByTable(table, reservations);
         }
     }
@@ -83,11 +79,16 @@ public class ReservationAssigner {
         return availableReservations;
     }
 
-    private static void sortReservationByPartySize(List<Reservation> assignments) {
-        Collections.sort(assignments, new Comparator<Reservation>() {
-            public int compare(Reservation assignment1, Reservation assignment2) {
-                int partySize1 = assignment1.getPartySize();
-                int partySize2 = assignment2.getPartySize();
+    /**
+     * Sorts given list of reservations by party size, with bigger party going first.
+     *
+     * @param reservations
+     */
+    private static void sortReservationByPartySize(List<Reservation> reservations) {
+        Collections.sort(reservations, new Comparator<Reservation>() {
+            public int compare(Reservation reservation1, Reservation reservation2) {
+                int partySize1 = reservation1.getPartySize();
+                int partySize2 = reservation2.getPartySize();
 
                 if (partySize1 > partySize2) {
                     return -1;
