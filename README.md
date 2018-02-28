@@ -20,8 +20,8 @@ Assumptions
 - See input in data/ as example.
 
 To Package:
-`mvn package`
+1. `mvn package`
 
 To Update JAR:
-`mvn package`
-`cp ./target/reservation-cli-1.0-SNAPSHOT-jar-with-dependencies.jar ./dist/reservation-cli.jar`
+1. `mvn package`
+2. `cp ./target/reservation-cli-1.0-SNAPSHOT-jar-with-dependencies.jar ./dist/reservation-cli.jar`
