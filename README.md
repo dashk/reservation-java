@@ -1,6 +1,6 @@
 To Run:
 1. Download the JAR from dist/reservation-cli.jar
-2. Run java -jar <path to jar> <path to table csv> <path to reservation csv>
+2. Run `java -jar <path to jar> <path to table csv> <path to reservation csv>`
 
 Code Entry Point:
 - ReservationRunner.main(...) (See ReservationRunner.java)
@@ -20,8 +20,8 @@ Assumptions
 - See input in data/ as example.
 
 To Package:
-mvn package
+`mvn package`
 
 To Update JAR:
-mvn package
-cp ./target/reservation-cli-1.0-SNAPSHOT-jar-with-dependencies.jar ./dist/reservation-cli.jar
+`mvn package`
+`cp ./target/reservation-cli-1.0-SNAPSHOT-jar-with-dependencies.jar ./dist/reservation-cli.jar`
