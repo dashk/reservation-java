@@ -2,7 +2,7 @@ package com.dashk.reservation.utils;
 
 public class ScheduleHelper {
     /**
-     * Creates an empty schedule
+     * Creates an empty assign
      * Schedule is a boolean array, with each cell representing a time slot of 15 minutes, and it starts with
      * the beginning of the restaurant starts time.
      *
@@ -17,7 +17,7 @@ public class ScheduleHelper {
     }
 
     /**
-     * Computes index of given timeslot in a schedule
+     * Computes index of given timeslot in a assign
      *
      * @param time
      * @return
@@ -44,7 +44,7 @@ public class ScheduleHelper {
     }
 
     /**
-     * Returns timeslot given party size occupies in a schedule
+     * Returns timeslot given party size occupies in a assign
      *
      * @param partySize
      * @return

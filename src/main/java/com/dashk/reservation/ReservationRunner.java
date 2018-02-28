@@ -1,8 +1,7 @@
 package com.dashk.reservation;
 
-import com.dashk.reservation.models.input.Reservation;
-import com.dashk.reservation.models.input.Table;
-import com.dashk.reservation.models.output.ReservationAssignment;
+import com.dashk.reservation.models.Reservation;
+import com.dashk.reservation.models.Table;
 import com.dashk.reservation.utils.CsvFileReader;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.logging.log4j.LogManager;
@@ -35,18 +34,18 @@ public class ReservationRunner {
         List<Reservation> reservations = extractReservationInfo(reservationDataPath);
 
         logger.info("Assigning reservations");
-        List<ReservationAssignment> assignments = ReservationAssigner.run(tables, reservations);
+        ReservationAssigner.run(tables, reservations);
 
         System.out.println("Reservation Assignments");
         int totalHeadCount = 0;
         int numberPeopleServed = 0;
 
-        for (ReservationAssignment assignment : assignments) {
-            System.out.println(assignment.toString());
+        for (Reservation reservation : reservations) {
+            System.out.println(reservation.toString());
 
-            int partySize = assignment.getReservation().getPartySize();
+            int partySize = reservation.getPartySize();
             totalHeadCount += partySize;
-            if (assignment.isAssigned()) {
+            if (reservation.isAssigned()) {
                 numberPeopleServed += partySize;
             }
         }

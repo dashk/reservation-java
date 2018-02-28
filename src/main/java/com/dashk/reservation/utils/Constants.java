@@ -2,12 +2,12 @@ package com.dashk.reservation.utils;
 
 public class Constants {
     /**
-     * Max # of timeslots per schedule
+     * Max # of timeslots per assign
      */
     public static final int TIME_SLOT_LENGTH = 20;
 
     /**
-     * Start time of schedule (In military time)
+     * Start time of assign (In military time)
      */
     public static final int START_TIME = 1700;
 
