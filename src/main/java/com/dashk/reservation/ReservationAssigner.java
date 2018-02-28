@@ -12,6 +12,13 @@ import java.util.*;
 public class ReservationAssigner {
     private static final Logger logger = LogManager.getLogger();
 
+    /**
+     * Assigns given reservations to given list of tables
+     *
+     * @param tables
+     * @param reservations
+     * @return
+     */
     public static List<ReservationAssignment> run(List<Table> tables, List<Reservation> reservations) {
         List<ReservationAssignment> reservationAssignments = createAssignments(reservations);
         List<TableSchedule> tableSchedules = createTableForAssignments(tables);
@@ -26,7 +33,7 @@ public class ReservationAssigner {
     }
 
     /**
-     *
+     * Assigns given reservations to given table
      *
      * @param tableSchedule
      * @param reservations

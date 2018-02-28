@@ -38,7 +38,7 @@ public class ReservationAssignment {
     @Override
     public String toString() {
         if (this.table == null) {
-            return String.format("%s is not assigned to any table", reservation.toString());
+            return String.format("%s is UNASSIGNED", reservation.toString());
         } else {
             return String.format("%s is assigned to %s", reservation.toString(), table.toString());
         }
